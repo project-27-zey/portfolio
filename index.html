@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Enyang Zhuo Portfolio</title>
   <style>
     body {
@@ -11,51 +11,186 @@
       font-family: Arial, sans-serif;
       margin: 2rem;
     }
+
+    h1, h2 {
+      font-weight: normal;
+    }
+
     .divider {
       border-top: 1px solid white;
       margin: 2rem 0;
+      position: relative;
     }
-    .section {
-      margin-bottom: 3rem;
+
+    .video-section {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
     }
-    iframe {
-      max-width: 100%;
-      width: 600px;
-      height: 340px;
+
+    .video-block {
+      width: 48%;
+    }
+
+    .video-block iframe,
+    .video-block video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
       border: none;
+    }
+
+    .vertical-line {
+      position: absolute;
+      top: -2rem;
+      bottom: -2rem;
+      left: 50%;
+      width: 1px;
+      background-color: white;
+      z-index: 1;
+    }
+
+    .collage-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .collage-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .top-img {
+      max-width: 80%;
+      width: auto;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+    }
+
+    .preview-img {
+      max-width: 20%;
+      width: auto;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .video-section {
+        flex-direction: column;
+      }
+      .vertical-line {
+        display: none;
+      }
+      .collage-row {
+        flex-direction: column;
+      }
+      .top-img,
+      .preview-img {
+        max-width: 100%;
+        max-height: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div>
-    <h1 style="font-size: 1.2rem; font-weight: normal;">Enyang Zhuo Presents</h1>
-  </div>
-  </div>
-  </div>
+  <h1>Enyang Zhuo Presents</h1>
   <div class="divider"></div>
 
-  <div class="section">
-    <h2>#01 Jericho Heritage</h2>
-    <p>Group Project</p>
-    <p>I contributed to the script and video editing for this project.</p>
-  <!-- 嵌入 Vimeo 视频 -->
-  <iframe src="https://player.vimeo.com/video/1069915263?h=52e21c1c2c"
-    width="640" height="360" frameborder="0"
-    allow="autoplay; fullscreen; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
+  <!-- 视频部分 -->
+  <div class="video-section">
+    <div class="video-block">
+      <h2>#01 Jericho Heritage</h2>
+      <p>Group Project</p>
+      <p>I contributed to the script and video editing for this project.</p>
+      <iframe src="https://player.vimeo.com/video/1069915263?h=52e21c1c2c" allowfullscreen></iframe>
+    </div>
 
-  <div class="section">
-    <h2>#02 Self-decoding</h2>
-    Keywords: Encryption, Moving image<br>
-    Individual work</p>
+    <div class="vertical-line"></div>
 
-    <p>This project is a “decoding” of personal information, aiming to capture how subtle cues can open up seams for privacy breaches and self-analysis. The inspiration for the project stemmed from my thoughts on the ubiquitous sharing of information today and its impacts. I realised that inadvertently disclosed personal information in daily life could potentially reveal a lot about one’s privacy. For instance, a personal music playlist might to some extent reveal one’s personality, becoming one of the ways for others to scrutinise oneself. Simultaneously, these pieces of information closely related to daily life serve as a medium for personal self-analysis, allowing us to re-examine ourselves from perspectives we may normally overlook.</p>
-
-    <iframe src="Self-decoding.mp4" allowfullscreen></iframe>
+    <div class="video-block">
+      <h2>#02 Self-decoding</h2>
+      <p>Keywords: Encryption, Moving image<br>Individual work</p>
+      <p>This project is a “decoding” of personal information, aiming to capture how subtle cues can open up seams for privacy breaches and self-analysis. The inspiration for the project stemmed from my thoughts on the ubiquitous sharing of information today and its impacts. I realised that inadvertently disclosed personal information in daily life could potentially reveal a lot about one’s privacy. For instance, a personal music playlist might to some extent reveal one’s personality, becoming one of the ways for others to scrutinise oneself. Simultaneously, these pieces of information closely related to daily life serve as a medium for personal self-analysis, allowing us to re-examine ourselves from perspectives we may normally overlook.</p>
+      <video controls poster="Self-decoding.png">
+        <source src="Self-decoding.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
 
-</body>
-</html>
+  <div class="divider"></div>
+  <style>
+    .collage-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+  
+    .collage-grid img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  
+    @media screen and (max-width: 768px) {
+      .collage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  
+  <h2>#03 New Collages</h2>
+  
+  <div class="collage-grid">
+    <img src="Slow_Days_Top_Image.jpg" alt="Slow Days Top Image">
+    <img src="Morocco_Top_Image3.jpg" alt="Morocco Top Image">
+    <img src="Happiness_Top_Image.jpg" alt="Happiness Top Image">
+    <img src="JakePaul_JuttaLeerdam_Top_Image.jpg" alt="Jake Paul & Jutta Leerdam Top Image">
+  </div>
+  <div class="divider"></div>
+  
+<h2>#04 Instagram covers</h2>
+<div class="insta-row">
+  <img src="Embracing Slow Days Why It’s Okay to Pause When You’re Burnt Out.jpg" alt="Slow Days Cover">
+  <img src="The Ultimate Guide to Must-See Attractions in Morocco.jpg" alt="Morocco Cover">
+  <img src="What Finland Taught Me About Happiness.jpg" alt="Finland Cover">
+  <img src="Jake Paul & Jutta Leerdam Are Engaged.jpg" alt="Jake & Jutta Cover">
+</div>
+
+<style>
+  .insta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .insta-row img {
+    width: 100%;
+    max-width: 23%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 768px) {
+    .insta-row {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .insta-row img {
+      max-width: 45%;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
