@@ -194,3 +194,176 @@
     }
   }
 </style>
+
+<div class="divider"></div>
+<h2>#05 Tatreez Echoing</h2>
+<p>This is a group project collaboratively created by Enyang Zhuo, Yao Zhang, and Yiqing Yang.</p>
+
+<div class="scroll-gallery" id="drag-scroll">
+  <img src="tatreez echoing.jpg" alt="Tatreez Echoing 1">
+  <img src="tatreez echoing01.jpg" alt="Tatreez Echoing 2">
+  <img src="tatreez echoing02.jpg" alt="Tatreez Echoing 3">
+  <img src="tatreez echoing03.jpg" alt="Tatreez Echoing 4">
+</div>
+
+<style>
+  .scroll-gallery {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    cursor: grab;
+    scroll-behavior: smooth;
+  }
+
+  .scroll-gallery img {
+    height: 500px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  .scroll-gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  .scroll-gallery:active {
+    cursor: grabbing;
+  }
+
+  .scroll-gallery::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .scroll-gallery::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 3px;
+  }
+
+  .scroll-gallery::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  @media screen and (max-width: 768px) {
+    .scroll-gallery img {
+      height: 300px;
+    }
+  }
+</style>
+
+<script>
+  // 鼠标拖动功能
+  const slider = document.getElementById('drag-scroll');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5; // 滑动速度
+    slider.scrollLeft = scrollLeft - walk;
+  });
+</script>
+
+<div class="divider"></div>
+<h2>#05 City Design Projects</h2>
+
+<div class="city-design-block">
+  <p><strong>Individual Project</strong></p>
+  <div class="image-wrapper">
+    <img src="City Design 01.jpg" alt="City Design 01">
+  </div>
+</div>
+
+<div class="city-design-block">
+  <p><strong>Group Project</strong></p>
+  <div class="image-wrapper">
+    <img src="City Design 02.jpg" alt="City Design 02">
+  </div>
+</div>
+
+<style>
+  .city-design-block {
+    margin-bottom: 2rem;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+</style>
+
+<div class="divider"></div>
+<h2>#07 Illustrations for volunteer</h2>
+<div class="volunteer-row">
+  <img src="Pond dipping activities_1.png" alt="Pond Dipping">
+  <img src="Concrete_Reuse_v2.png" alt="Concrete Reuse">
+  <img src="Grassy areas for play.png" alt="Grassy Areas">
+</div>
+
+<style>
+  .volunteer-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .volunteer-row img {
+    width: 100%;
+    max-width: 32%;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none; /* 禁止图片被拖拽或下载 */
+  }
+
+  @media screen and (max-width: 768px) {
+    .volunteer-row {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .volunteer-row img {
+      max-width: 90%;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
